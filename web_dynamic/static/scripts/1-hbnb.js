@@ -11,6 +11,6 @@ $(document).ready(function() {
         for (const idx in amenities_checked) {
             amenities_list.push(amenities_checked[idx]);
         }
-        $('.amenities h4').text(amenities_list.join(', '))
-    })
-})
+        $('.amenities h4').text(amenities_list.join(', '));
+    });
+});
