@@ -59,7 +59,7 @@ $(document).ready(function() {
           data: JSON.stringify({ amenities: Object.keys(checkedAmenities) }),
           success: function (data) {
             for (const place of data) {
-              $.get('http://35f944014d11.7399d2e2.hbtn-cod.io:5001/api/v1/users/' + place.user_id, function (usrData) {
+              $.get('http://127.0.0.1:5001/api/v1/users/' + place.user_id, function (usrData) {
                 const html = `<article>
                     <div class="title_box">
                       <h2>${place.name}</h2>
