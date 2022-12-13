@@ -13,7 +13,7 @@ $(document).ready(function() {
         }
         $('.amenities h4').text(amenities_list.join(', '));
     });
-    $.get('127.0.0.1:5001/api/v1/status/', function (data) {
+    $.get('http://9606e63780a2.75bdca02.hbtn-cod.io:5001/api/v1/status/', function (data) {
         if (data.status === 'OK') {
           $('#api_status').addClass('available');
         } else {
@@ -22,12 +22,12 @@ $(document).ready(function() {
     });
     $.ajax({
         type: 'POST',
-        url: '127.0.0.1:5001/api/v1/places_search/',
+        url: 'http://9606e63780a2.75bdca02.hbtn-cod.io:5001/api/v1/places_search/',
         data: '{}',
         contentType: 'application/json',
         success: function (data) {
           for (const place of data) {
-            $.get('127.0.0.1:5001/api/v1/users/' + place.user_id, function (usrData) {
+            $.get('http://9606e63780a2.75bdca02.hbtn-cod.io:5001/api/v1/users/' + place.user_id, function (usrData) {
               const html = `<article>
                   <div class="title_box">
                     <h2>${place.name}</h2>
@@ -53,13 +53,13 @@ $(document).ready(function() {
     $('button').on('click', function () {
         $('.places > article').remove();
         $.ajax({
-          url: '127.0.0.1:5001/api/v1/places_search/',
+          url: 'http://9606e63780a2.75bdca02.hbtn-cod.io:5001/api/v1/places_search/',
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify({ amenities: Object.keys(amenities_checked) }),
           success: function (data) {
             for (const place of data) {
-              $.get('127.0.0.1:5001/api/v1/users/' + place.user_id, function (usrData) {
+              $.get('http://9606e63780a2.75bdca02.hbtn-cod.io:5001/api/v1/users/' + place.user_id, function (usrData) {
                 const html = `<article>
                     <div class="title_box">
                       <h2>${place.name}</h2>
