@@ -14,7 +14,7 @@ header .logo {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    float: right;
+    top: 50%;
     background-color: #cccccc;
     margin-right: 30px;
   }
