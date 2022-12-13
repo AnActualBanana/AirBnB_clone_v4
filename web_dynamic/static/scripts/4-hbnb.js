@@ -56,7 +56,7 @@ $(document).ready(function() {
           url: '127.0.0.1:5001/api/v1/places_search/',
           type: 'POST',
           contentType: 'application/json',
-          data: JSON.stringify({ amenities: Object.keys(checkedAmenities) }),
+          data: JSON.stringify({ amenities: Object.keys(amenities_checked) }),
           success: function (data) {
             for (const place of data) {
               $.get('127.0.0.1:5001/api/v1/users/' + place.user_id, function (usrData) {
