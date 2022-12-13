@@ -7,7 +7,7 @@ $(document).ready(function() {
         } else {
             delete amenities_checked[$(this).data('id')];
         }
-        const amenities_list = []
+        const amenities_list = [];
         for (const idx in amenities_checked) {
             amenities_list.push(amenities_checked[idx]);
         }
@@ -23,7 +23,8 @@ $(document).ready(function() {
     $.ajax({
         type: 'POST',
         url: 'http://0.0.0.0:5001/api/v1/places_search/',
-        data: '{}',
+        data: JSON.stringify({}),
+        dataType: 'json',
         contentType: 'application/json',
         success: function (data) {
           for (const place of data) {
@@ -55,6 +56,7 @@ $(document).ready(function() {
         $.ajax({
           url: 'http://0.0.0.0:5001/api/v1/places_search/',
           type: 'POST',
+          dataType: 'json',
           contentType: 'application/json',
           data: JSON.stringify({ amenities: Object.keys(amenities_checked) }),
           success: function (data) {
