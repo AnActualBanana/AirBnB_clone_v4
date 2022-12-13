@@ -22,12 +22,12 @@ $(document).ready(function() {
     });
     $.ajax({
         type: 'POST',
-        url: 'http://127.0.0.1:5001/api/v1/places_search/',
+        url: 'http://0.0.0.0:5001/api/v1/places_search/',
         data: '{}',
         contentType: 'application/json',
         success: function (data) {
           for (const place of data) {
-            $.get('http://127.0.0.1:5001/api/v1/users/' + place.user_id, function (usrData) {
+            $.get('http://0.0.0.0:5001/api/v1/users/' + place.user_id, function (usrData) {
               const html = `<article>
                   <div class="title_box">
                     <h2>${place.name}</h2>
